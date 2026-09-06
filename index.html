@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TRH Modern Nursery — Project Dashboard</title>
+<style>
+:root{--green:#147a45;--green2:#1f9d61;--bg:#f4f7f5;--card:#fff;--text:#183027;--muted:#6d7b75;--line:#e2e9e5;--red:#d94b4b;--blue:#2d72d9}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.app{display:flex;min-height:100vh}.side{width:245px;background:#fff;border-right:1px solid var(--line);padding:22px 16px;position:fixed;inset:0 auto 0 0}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 8px 24px;font-weight:800;font-size:17px}.logo{width:38px;height:38px;border-radius:11px;background:var(--green);color:white;display:grid;place-items:center;font-weight:900}
+.nav button{width:100%;border:0;background:none;text-align:left;padding:12px 13px;border-radius:10px;margin:2px 0;color:#52615b;font-size:14px;cursor:pointer}.nav button.active,.nav button:hover{background:#eaf6ef;color:var(--green);font-weight:700}
+.main{margin-left:245px;width:calc(100% - 245px);padding:26px 32px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.title h1{margin:0;font-size:26px}.title p{margin:6px 0 0;color:var(--muted);font-size:13px}.date{background:white;border:1px solid var(--line);padding:10px 14px;border-radius:10px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}.metric{font-size:28px;font-weight:800;margin:8px 0}.label{color:var(--muted);font-size:12px}.delta{font-size:12px;color:var(--green)}
+.section{margin-top:20px;display:grid;grid-template-columns:1.5fr 1fr;gap:16px}.section.full{grid-template-columns:1fr}.card h2{font-size:16px;margin:0 0 15px}.bar{height:12px;background:#edf1ef;border-radius:20px;overflow:hidden}.fill{height:100%;background:var(--green);border-radius:20px}.row{display:flex;justify-content:space-between;align-items:center;margin:14px 0;font-size:13px}.mini{font-size:12px;color:var(--muted)}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600}.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#eaf6ef;color:var(--green);font-size:11px;font-weight:700}.pill.red{background:#fdecec;color:var(--red)}.page{display:none}.page.active{display:block}.chart{height:220px;display:flex;align-items:end;gap:12px;padding:10px 4px 0}.barcol{flex:1;text-align:center;font-size:10px;color:var(--muted)}.barv{height:150px;display:flex;align-items:end}.barv i{display:block;width:100%;background:var(--green);border-radius:6px 6px 0 0}.map{height:330px;background:#eef4f0;border:1px dashed #b8c9bf;border-radius:12px;display:grid;place-items:center;color:var(--muted);font-size:14px}
+@media(max-width:850px){.side{width:70px}.brand span,.nav button span{display:none}.main{margin-left:70px;width:calc(100% - 70px);padding:18px}.grid{grid-template-columns:repeat(2,1fr)}.section{grid-template-columns:1fr}.brand{justify-content:center}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><div class="logo">TRH</div><span>MODERN NURSERY</span></div>
+  <div class="nav">
+    <button class="active" onclick="show('dashboard',this)">◉ <span>Dashboard</span></button>
+    <button onclick="show('progress',this)">▣ <span>Progress Pekerjaan</span></button>
+    <button onclick="show('sandbed',this)">▤ <span>Sandbed</span></button>
+    <button onclick="show('schedule',this)">◷ <span>Schedule</span></button>
+    <button onclick="show('docs',this)">▧ <span>Dokumentasi</span></button>
+    <button onclick="show('map',this)">⌖ <span>Project Map</span></button>
+  </div>
+</aside>
+<main class="main">
+<section id="dashboard" class="page active">
+ <div class="top"><div class="title"><h1>Project Dashboard</h1><p>Persemaian Modern TRH — Unit Suaran, Berau</p></div><div class="date">06 September 2026</div></div>
+ <div class="grid">
+  <div class="card"><div class="label">PROGRESS KESELURUHAN</div><div class="metric">—%</div><div class="delta">Target & aktual dapat diisi</div></div>
+  <div class="card"><div class="label">SANDBED PRODUKSI</div><div class="metric">25</div><div class="delta">unit hari ini</div></div>
+  <div class="card"><div class="label">SANDBED TERPASANG</div><div class="metric">25</div><div class="delta">unit hari ini</div></div>
+  <div class="card"><div class="label">TARGET SANDBED</div><div class="metric">1.440</div><div class="delta">unit</div></div>
+ </div>
+ <div class="section">
+  <div class="card"><h2>Progress Pekerjaan Utama</h2>
+   <div class="row"><span>Sandbed</span><b>—%</b></div><div class="bar"><div class="fill" style="width:0%"></div></div>
+   <div class="row"><span>Modern Nursery</span><b>—%</b></div><div class="bar"><div class="fill" style="width:0%"></div></div>
+   <div class="row"><span>WTP & Water System</span><b>—%</b></div><div class="bar"><div class="fill" style="width:0%"></div></div>
+  </div>
+  <div class="card"><h2>Status Proyek</h2><div class="row"><span>Status</span><span class="pill">ACTIVE</span></div><div class="row"><span>Lokasi</span><span class="mini">Unit Suaran</span></div><div class="row"><span>Update</span><span class="mini">06 Sep 2026</span></div></div>
+ </div>
+</section>
+
+<section id="progress" class="page">
+ <div class="top"><div class="title"><h1>Progress Pekerjaan</h1><p>Rekap pekerjaan per area</p></div></div>
+ <div class="card"><table><thead><tr><th>Area / Pekerjaan</th><th>Target</th><th>Realisasi</th><th>Progress</th><th>Status</th></tr></thead><tbody>
+ <tr><td>Sandbed</td><td>1.440 unit</td><td>—</td><td>—%</td><td><span class="pill">Aktif</span></td></tr>
+ <tr><td>Modern Nursery / Greenhouse</td><td>—</td><td>—</td><td>—%</td><td><span class="pill">Aktif</span></td></tr>
+ <tr><td>WTP</td><td>—</td><td>—</td><td>—%</td><td><span class="pill">Aktif</span></td></tr>
+ <tr><td>Laboratorium Kultur Jaringan</td><td>—</td><td>—</td><td>—%</td><td><span class="pill">Aktif</span></td></tr>
+ </tbody></table></div>
+</section>
+
+<section id="sandbed" class="page">
+ <div class="top"><div class="title"><h1>Sandbed</h1><p>Produksi, pemasangan, dan saldo</p></div></div>
+ <div class="grid">
+  <div class="card"><div class="label">TARGET</div><div class="metric">1.440</div><div class="label">unit</div></div>
+  <div class="card"><div class="label">PRODUKSI HARI INI</div><div class="metric">25</div><div class="label">unit</div></div>
+  <div class="card"><div class="label">TERPASANG HARI INI</div><div class="metric">25</div><div class="label">unit</div></div>
+  <div class="card"><div class="label">STOK BERSIH HARI INI</div><div class="metric">0</div><div class="label">unit</div></div>
+ </div>
+ <div class="section full"><div class="card"><h2>Rekap Harian</h2><table><thead><tr><th>Tanggal</th><th>Produksi</th><th>Pemasangan</th><th>Stok</th></tr></thead><tbody><tr><td>06 Sep 2026</td><td>25</td><td>25</td><td>0</td></tr></tbody></table></div></div>
+</section>
+
+<section id="schedule" class="page">
+ <div class="top"><div class="title"><h1>Schedule</h1><p>Rencana, aktual, dan deviasi</p></div></div>
+ <div class="card"><table><thead><tr><th>Aktivitas</th><th>Rencana</th><th>Aktual</th><th>Deviasi</th></tr></thead><tbody>
+ <tr><td>Sandbed</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Modern Nursery</td><td>—</td><td>—</td><td>—</td></tr><tr><td>WTP</td><td>—</td><td>—</td><td>—</td></tr>
+ </tbody></table></div>
+</section>
+
+<section id="docs" class="page">
+ <div class="top"><div class="title"><h1>Dokumentasi</h1><p>Foto progress proyek</p></div></div>
+ <div class="grid"><div class="card"><h2>Foto Hari Ini</h2><p class="mini">Belum ada foto yang diunggah.</p></div><div class="card"><h2>Foto Mingguan</h2><p class="mini">Belum ada dokumentasi.</p></div></div>
+</section>
+
+<section id="map" class="page">
+ <div class="top"><div class="title"><h1>Project Map</h1><p>Peta interaktif area Persemaian Modern</p></div></div>
+ <div class="map">AREA MASTERPLAN / SITE MAP<br><small>Denah proyek dapat dimasukkan pada tahap berikutnya.</small></div>
+</section>
+</main></div>
+<script>
+function show(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active')}
+</script>
+</body>
+</html>
